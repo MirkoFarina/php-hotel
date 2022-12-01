@@ -61,9 +61,10 @@
                             $value = 'no';
                         }
                     }
-                echo $value ?>
+                    echo "$key = $value";?>
         </li>
         <?php }} ?>
     </ul>
+    
 </body>
 </html>
