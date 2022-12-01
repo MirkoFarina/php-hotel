@@ -48,6 +48,22 @@
     <title>PHP Hotel</title>
 </head>
 <body>
-    
+    <ul>
+        <?php foreach($hotels as $hotel) {
+            foreach($hotel as $key => $value){
+         ?>
+        <li>
+                <?php 
+                    if($key === 'parking'){
+                        if($value) {
+                            $value = 'si';
+                        }else {
+                            $value = 'no';
+                        }
+                    }
+                echo $value ?>
+        </li>
+        <?php }} ?>
+    </ul>
 </body>
 </html>
