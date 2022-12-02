@@ -58,8 +58,28 @@
     <title>PHP Hotel</title>
 </head>
 <body>
-    <div class="container my-5">
-    
+    <div class="container">
+        <div class="row">
+            <div class="col-12 d-flex align-items-center py-3 px-4">
+            <form action="./index.php" method="$_GET" class="d-flex align-items-center justify-content-between w-100">
+                <div>
+                    <input type="radio" name="parking" id="yes"> 
+                    <label for="yes">Parcheggio si</label>
+                    <input type="radio" name="parking" id="no">
+                    <label for="no">Parcheggio no</label>
+                </div>
+                <div>
+                    <label for="vote"> VOTO </label>
+                    <input type="number" name="vote" id="vote" min="0" max="5" >
+                </div>
+                <div>
+                    <button type="submit" class="btn btn-primary"> CERCA</button>
+                    <button type="reset" class="btn btn-danger"> RESET </button>
+                </div>
+            </form>
+            </div>
+        </div>
+
         <table class="table table-dark table-striped">
             <thead>
                 <tr>
