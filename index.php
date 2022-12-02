@@ -36,6 +36,16 @@
             'distance_to_center' => 50
         ],
     ];
+    // creo un array vuoto in cui inserirò le chiavi dei valori
+    $arrayKey = [];
+    // faccio un foreach di hotels per ottenere il singolo hotel
+    foreach ($hotels as $hotel){
+        // nel singolo hotel faccio un controllo di univocità e pusho le key nell'array prima creato, per poi stamparle nel th
+        foreach ($hotel as $key => $value){
+            if(!in_array($key, $arrayKey)) {
+                $arrayKey[] = $key;
+                }
+            }}
 ?>
 
 <!DOCTYPE html>
@@ -48,23 +58,46 @@
     <title>PHP Hotel</title>
 </head>
 <body>
-    <ul>
-        <?php foreach($hotels as $hotel) {
-            foreach($hotel as $key => $value){
-         ?>
-        <li>
-                <?php 
-                    if($key === 'parking'){
-                        if($value) {
-                            $value = 'si';
-                        }else {
-                            $value = 'no';
-                        }
-                    }
-                    echo "$key = $value";?>
-        </li>
-        <?php }} ?>
-    </ul>
+    <div class="container my-5">
     
+        <table class="table table-dark table-striped">
+            <thead>
+                <tr>
+                <?php 
+                // CICLO IL MIO ARRAY CHE CONTIENE LE CHIAVI UNIVOCHE
+                foreach($arrayKey as $key){ ?>
+                <th scope="col">
+                    
+                    <?php 
+                    // STAMPO LE CHIAVI NEL TH
+                    echo $key ?>
+                </th>
+                <?php } ?>
+                </tr>
+            </thead>
+            <tbody>
+                <?php foreach ($hotels as $hotel){ ?>
+                <tr>
+
+                <?php foreach ($hotel as $key => $value){ ?>
+                <td>
+                    <?php 
+                        if($key === 'parking'){
+                            if($value) {
+                                $value = 'si';
+                            }else {
+                                $value = 'no';
+                            }
+                        }
+                        echo  $value 
+                    ?>  
+                </td>
+                <?php } ?>
+
+                </tr>
+                <?php } ?>
+            </tbody>
+        </table>
+    </div>
 </body>
 </html>
